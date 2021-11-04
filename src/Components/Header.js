@@ -1,6 +1,4 @@
 import React from "react";
-// import school1 from '.src/school1.jpg';
-// import school1 from '.src/school1.jpg';
 
 export default function Header() {
   return (
