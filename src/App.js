@@ -22,7 +22,6 @@ function App() {
           <Route path="/Mediapage" component={Mediapage} />
         </Switch>
       </Router>
-
     </div>
   );
 }
