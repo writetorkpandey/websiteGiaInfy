@@ -1,3 +1,4 @@
+
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./Components/Header";
@@ -9,12 +10,10 @@ import Homepage from "./Pages/Homepage";
 import Aboutuspage from "./Pages/Aboutuspage";
 import Mediapage from "./Pages/Mediapage";
 
+
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
-      {/* <Aboutus /> */}
-      {/* <Media /> */}
 
       <Router>
         <Switch>
@@ -23,7 +22,7 @@ function App() {
           <Route path="/Mediapage" component={Mediapage} />
         </Switch>
       </Router>
-      {/* <Footer /> */}
+
     </div>
   );
 }
