@@ -7,6 +7,7 @@ import Aboutuspage from "./Pages/Aboutuspage";
 import Mediapage from "./Pages/Mediapage";
 import ActivityPage from "./Pages/ActivityPage";
 import Contactuspage from "./Pages/Contactuspage";
+import Loginpage from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Homepage} />
-          <Route path="/Aboutuspage" exact component={Aboutuspage} />
-          <Route path="/Mediapage" component={Mediapage} />
-          <Route path="/Activitypage" component={ActivityPage} />
-          <Route path="/Contactuspage" component={Contactuspage} />
+          <Route path="/Aboutus" exact component={Aboutuspage} />
+          <Route path="/Media" component={Mediapage} />
+          <Route path="/Activities" component={ActivityPage} />
+          <Route path="/Contactus" component={Contactuspage} />
+          <Route path="/Login" component={Loginpage} />
         </Switch>
       </Router>
     </div>

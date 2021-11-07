@@ -30,32 +30,32 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link to="/Aboutuspage" class="nav-link">
+                <Link to="/Aboutus" class="nav-link">
                   ABOUT US
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link class="nav-link" href="#">
+                <Link class="nav-link" to="/Activities">
                   ACTIVITIES
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link class="nav-link" href="#">
+                <Link class="nav-link" to="/Admission">
                   ADMISSION
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link class="nav-link" href="#">
+                <Link class="nav-link" to="/Achivements" >
                   ACHIEVEMENTS
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link class="nav-link" href="#">
+                <Link class="nav-link" to="/Media">
                   MEDIA
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link class="nav-link" href="#">
+                <Link class="nav-link" to="/Contactus">
                   CONTACT US
                 </Link>
               </li>
