@@ -36,21 +36,15 @@ code {
   font-family: "Bebas Neue", cursive;
   font-family: "Fredoka One", cursive;
   color: rgb(31, 1, 7);
-  
 }
-
 
 .head-1 {
   height: 90vh;
   width: 90vw;
-  
-  
 }
 
-
-.abtp{
-
-  border-bottom-style:solid;
+.abtp {
+  border-bottom-style: solid;
   border-width: 1px;
   border-bottom-color: rgb(179, 179, 190);
 }
@@ -58,14 +52,14 @@ code {
 /*Contact Us CSS start*/
 
 /* Google Font CDN Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 /* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 } */
-.contactus-body{
+.contactus-body {
   min-height: 100vh;
   width: 100%;
   background: #c8e8e9;
@@ -73,19 +67,19 @@ code {
   align-items: center;
   justify-content: center;
 }
- .contactus-container{
+.contactus-container {
   width: 85%;
   background: #fff;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-.contactus-container .contactus-content{
+.contactus-container .contactus-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.contactus-container .contactus-content .contactus-left-side{
+.contactus-container .contactus-content .contactus-left-side {
   width: 25%;
   height: 100%;
   display: flex;
@@ -95,8 +89,8 @@ code {
   margin-top: 15px;
   position: relative;
 }
-.contactus-content .contactus-left-side::before{
-  content: '';
+.contactus-content .contactus-left-side::before {
+  content: "";
   position: absolute;
   height: 70%;
   width: 2px;
@@ -105,61 +99,61 @@ code {
   transform: translateY(-50%);
   background: #afafb6;
 }
-.contactus-content .contactus-left-side .details{
+.contactus-content .contactus-left-side .details {
   margin: 14px;
   text-align: center;
 }
-.contactus-content .contactus-left-side .details i{
+.contactus-content .contactus-left-side .details i {
   font-size: 30px;
   color: #3e2093;
   margin-bottom: 10px;
 }
-.contactus-content .contactus-left-side .details .topic{
+.contactus-content .contactus-left-side .details .topic {
   font-size: 18px;
   font-weight: 500;
 }
 .contactus-content .contactus-left-side .details .text-one,
-.contactus-content .contactus-left-side .details .text-two{
+.contactus-content .contactus-left-side .details .text-two {
   font-size: 14px;
   color: #afafb6;
 }
-.contactus-container .contactus-content .contactus-right-side{
+.contactus-container .contactus-content .contactus-right-side {
   width: 75%;
   margin-left: 75px;
 }
-.contactus-content .contactus-right-side .topic-text{
+.contactus-content .contactus-right-side .topic-text {
   font-size: 23px;
   font-weight: 600;
   color: #3e2093;
 }
-.contactus-right-side .input-box{
+.contactus-right-side .input-box {
   height: 50px;
   width: 100%;
   margin: 12px 0;
 }
 .contactus-right-side .input-box input,
-.contactus-right-side .input-box textarea{
+.contactus-right-side .input-box textarea {
   height: 100%;
   width: 100%;
   border: none;
   outline: none;
   font-size: 16px;
-  background: #F0F1F8;
+  background: #f0f1f8;
   border-radius: 6px;
   padding: 0 15px;
   resize: none;
 }
-.contactus-right-side .message-box{
+.contactus-right-side .message-box {
   min-height: 110px;
 }
-.contactus-right-side .input-box textarea{
+.contactus-right-side .input-box textarea {
   padding-top: 6px;
 }
-.contactus-right-side .button{
+.contactus-right-side .button {
   display: inline-block;
   margin-top: 12px;
 }
-.contactus-right-side .button input[type="button"]{
+.contactus-right-side .button input[type="button"] {
   color: #fff;
   font-size: 18px;
   outline: none;
@@ -170,121 +164,53 @@ code {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.button input[type="button"]:hover{
+.button input[type="button"]:hover {
   background: #5029bc;
 }
 
 @media (max-width: 950px) {
-  .contactus-container{
+  .contactus-container {
     width: 90%;
-    padding: 30px 40px 40px 35px ;
+    padding: 30px 40px 40px 35px;
   }
-  .contactus-container .contactus-content .contactus-right-side{
-   width: 75%;
-   margin-left: 55px;
-}
+  .contactus-container .contactus-content .contactus-right-side {
+    width: 75%;
+    margin-left: 55px;
+  }
 }
 @media (max-width: 820px) {
-  .contactus-container{
+  .contactus-container {
     margin: 40px 0;
     height: 100%;
   }
-  .contactus-container .contactus-content{
+  .contactus-container .contactus-content {
     flex-direction: column-reverse;
   }
- .contactus-container .contactus-content .contactus-left-side{
-   width: 100%;
-   flex-direction: row;
-   margin-top: 40px;
-   justify-content: center;
-   flex-wrap: wrap;
- }
- .contactus-container .contactus-content .contactus-left-side::before{
-   display: none;
- }
- .contactus-container .contactus-content .contactus-right-side{
-   width: 100%;
-   margin-left: 0;
- }
+  .contactus-container .contactus-content .contactus-left-side {
+    width: 100%;
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .contactus-container .contactus-content .contactus-left-side::before {
+    display: none;
+  }
+  .contactus-container .contactus-content .contactus-right-side {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 /*Contact Us CSS end*/
 
 /*Activity Page Start*/
-.activity-div-container{
+.activity-div-container {
   margin-left: 30px;
   margin-top: 30px;
   text-align: left;
 }
-.activity-h1{
+.activity-h1 {
   font-size: medium;
   color: coral;
 }
 /*Activity Page End*/
-
-
-/* --------------------------------- navbar css style starts 
-                        -------------------------------------------------------*/
-
-.navbar-bg {
-  background-color: var(--bgcolor);
-  padding: 2rem 0;
-  z-index: 99;
-  position: relative;
-}
-
-.navbar-brand {
-  font-size: 2.5rem;
-}
-
-.navbar li {
-  padding: 0 2rem;
-}
-
-.navbar li a {
-  font-size: 1.7rem;
-  font-weight: lighter;
-  position: relative;
-}
-
-.navbar li a:hover {
-  color: var(--primary-color) !important;
-  text-shadow: 0 0.2rem 0.3rem rgba(183, 171, 255, 0.5);
-}
-
-.btn-style {
-  width: 12rem;
-  height: 4rem;
-  border-radius: 2rem;
-  color: #fff;
-  background-color: var(--primary-color);
-  text-transform: capitalize;
-  font-size: 1.6rem;
-}
-
-.btn-style:first-child {
-  margin-right: 2rem;
-}
-
-.btn-style:hover {
-  border: 0.1rem solid var(--primary-color);
-  background-color: transparent;
-  color: var(--primary-color);
-  box-shadow: 0 0.2rem 0.5rem rgba(183, 171, 255, 0.5);
-}
-
-.btn-style-border {
-  border: 0.1rem solid var(--primary-color);
-  background-color: transparent;
-  color: var(--primary-color);
-  box-shadow: 0 0.2rem 0.5rem rgba(183, 171, 255, 0.5);
-}
-
-.btn-style-border:hover {
-  color: #fff;
-  background-color: var(--primary-color);
-  text-transform: capitalize;
-}
-
-/* --------------------------------- Navbar ends  
-                        -------------------------------------------------------*/
-
