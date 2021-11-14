@@ -1,6 +1,23 @@
-import React from 'react'
+import React,{useState} from 'react';
+import { useEffect } from 'react';
+import db from "../firebaseConfig";
+import { onSnapshot, collection } from "firebase/firestore";
 
 export default function ContactUs() {
+
+  // const contact = {address:"testAddress",phone:"testPhone",email:"testEmail@test"};
+
+  const [contact, setContact] = useState({});
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "contactUs"), (snapshot) =>
+        {setContact(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+      console.log(contact)}
+      ),
+    []
+  );
+
     return (
       <div className="contactus-body">
         <div className="contactus-container">
@@ -9,19 +26,22 @@ export default function ContactUs() {
             <div className="address details">
               <i className="fas fa-map-marker-alt"></i>
               <div className="topic">Address</div>
-              <div className="text-one">College Goddopur, near Mahila Pg</div>
-              <div className="text-two">Goshainganj, Uttar Pradesh 224141</div>
+              <div className="text-one">{contact.address}</div>
+              {/* <div className="text-one">College Goddopur, near Mahila Pg</div>
+              <div className="text-two">Goshainganj, Uttar Pradesh 224141</div> */}
             </div>
             <div className="phone details">
               <i className="fas fa-phone-alt"></i>
               <div className="topic">Phone</div>
-              <div className="text-one">0522-250050</div>
+              {/* <div className="text-one">0522-250050</div> */}
+              <div className="text-one">{contact.phone}</div>
               <div className="text-two"></div>
             </div>
             <div className="email details">
               <i className="fas fa-envelope"></i>
               <div className="topic">Email</div>
-              <div className="text-one">ranvijay.takshsila@gmail.com</div>
+              {/* <div className="text-one">ranvijay.takshsila@gmail.com</div> */}
+              <div className="text-one">{contact.email}</div>
               <div className="text-two"></div>
             </div>
           </div>
