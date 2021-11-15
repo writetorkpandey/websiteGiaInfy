@@ -5,9 +5,7 @@ import { onSnapshot, collection } from "firebase/firestore";
 
 export default function ContactUs() {
 
-  // const contact = {address:"testAddress",phone:"testPhone",email:"testEmail@test"};
-
-  const [contact, setContact] = useState({});
+  const [contact, setContact] = useState([]);
 
   useEffect(
     () =>
@@ -26,7 +24,7 @@ export default function ContactUs() {
             <div className="address details">
               <i className="fas fa-map-marker-alt"></i>
               <div className="topic">Address</div>
-              <div className="text-one">{contact.address}</div>
+              <div className="text-one">{contact[0].address}</div>
               {/* <div className="text-one">College Goddopur, near Mahila Pg</div>
               <div className="text-two">Goshainganj, Uttar Pradesh 224141</div> */}
             </div>
@@ -34,14 +32,14 @@ export default function ContactUs() {
               <i className="fas fa-phone-alt"></i>
               <div className="topic">Phone</div>
               {/* <div className="text-one">0522-250050</div> */}
-              <div className="text-one">{contact.phone}</div>
+              <div className="text-one">{contact[0].phone}</div>
               <div className="text-two"></div>
             </div>
             <div className="email details">
               <i className="fas fa-envelope"></i>
               <div className="topic">Email</div>
               {/* <div className="text-one">ranvijay.takshsila@gmail.com</div> */}
-              <div className="text-one">{contact.email}</div>
+              <div className="text-one">{contact[0].email}</div>
               <div className="text-two"></div>
             </div>
           </div>
