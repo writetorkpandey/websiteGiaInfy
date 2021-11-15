@@ -1,45 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import db from "../firebaseConfig";
+import { onSnapshot, collection } from "firebase/firestore";
 
 export default function Aboutus() {
-  const schoolTeam = [
-    {
-      imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-4.png",
-      name: "Anju Pandey",
-      designation: "Manager",
-    },
+  const [aboutUs, setAboutUs] = useState([]);
+  const [schoolTeam, setSchoolteam] = useState([]);
 
-    {
-      imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-1.png",
-      name: "R V Sharma",
-      designation: "Principal",
-    },
-    {
-      imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-2.png",
-      name: "D N Dubey",
-      designation: "Administrator",
-    },
-  ];
+  useEffect(() => {
+    onSnapshot(collection(db, "aboutUs"), (snapshot) => {
+      setAboutUs(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    });
 
-  const aboutUs = [
-    {
-      heading: "About Gramarshi",
-      paragraph:"The school was established in 2008.Gramarshi Academy International is a Co-ed school affiliated to Central Board of Secondary Education (CBSE).It is managed by Gramarshi Academy"
-    },
-    {
-      heading: "Mission",
-      paragraph: "To cultivate world-class thinkers.",
-    },
-    {
-      heading: "Vision",
-      paragraph:
-        "Our students will be the leaders of tomorrow with the skills, knowledge, and confidence to realize their dreams in an ever-changing world.",
-    },
-    {
-      heading: "Our Beliefs",
-      paragraph:
-        "Every member of our community plays a valuable role in the success of our students by supporting a positive, student-focused learning environment",
-    },
-  ];
+    onSnapshot(collection(db, "schoolTeam"), (snapshot) => {
+      setSchoolteam(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    });
+  }, []);
+
+  // const schoolTeam = [
+  //   {
+  //     imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-4.png",
+  //     name: "Anju Pandey",
+  //     designation: "Manager",
+  //   },
+
+  //   {
+  //     imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-1.png",
+  //     name: "R V Sharma",
+  //     designation: "Principal",
+  //   },
+  //   {
+  //     imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-2.png",
+  //     name: "D N Dubey",
+  //     designation: "Administrator",
+  //   },
+  // ];
+
+  // const aboutUs = [
+  //   {
+  //     heading: "About Gramarshi",
+  //     paragraph:"The school was established in 2008.Gramarshi Academy International is a Co-ed school affiliated to Central Board of Secondary Education (CBSE).It is managed by Gramarshi Academy"
+  //   },
+  //   {
+  //     heading: "Mission",
+  //     paragraph: "To cultivate world-class thinkers.",
+  //   },
+  //   {
+  //     heading: "Vision",
+  //     paragraph:
+  //       "Our students will be the leaders of tomorrow with the skills, knowledge, and confidence to realize their dreams in an ever-changing world.",
+  //   },
+  //   {
+  //     heading: "Our Beliefs",
+  //     paragraph:
+  //       "Every member of our community plays a valuable role in the success of our students by supporting a positive, student-focused learning environment",
+  //   },
+  // ];
 
   return (
     <div>
@@ -54,7 +72,7 @@ export default function Aboutus() {
 
                 <p className="text-secondary">{item.paragraph}</p>
               </>
-            )
+            );
           })}
         </div>
       </div>
