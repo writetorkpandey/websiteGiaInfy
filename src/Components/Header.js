@@ -61,9 +61,9 @@ export default function Header() {
               </li>
             </ul>
 
-            <button class="btn btn-outline-success" type="button">
+            <Link class="btn btn-outline-success" to="/Login" type="button">
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
