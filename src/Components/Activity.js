@@ -29,12 +29,10 @@ export default function Activity() {
     },
   ];
   return (
-    <div className="activity-div-container mt-5" >
-      
+    <div className="activity-div-container py-5">
       {activityData.map((item) => {
         return (
           <>
-            
             <h1 className="h5 text-primary">{item.activityName}</h1>
             <p className="text-secondary">{item.activityDescription}</p>
           </>

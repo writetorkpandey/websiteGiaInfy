@@ -22,8 +22,8 @@ export default function Header() {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class={`collapse navbar-collapse ${show ? "show" : ""}`}>
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <div class={`collapse navbar-collapse  ${show ? "show" : ""}`}>
+            <ul class="navbar-nav me-auto ">
               <li class="nav-item">
                 <Link to="/" class="nav-link ">
                   HOME
@@ -45,7 +45,7 @@ export default function Header() {
                 </Link>
               </li>
               <li class="nav-item ">
-                <Link class="nav-link" to="/Achivements" >
+                <Link class="nav-link" to="/Achivements">
                   ACHIEVEMENTS
                 </Link>
               </li>

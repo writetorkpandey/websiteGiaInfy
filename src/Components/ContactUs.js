@@ -1,24 +1,23 @@
-import React,{useState} from 'react';
-import { useEffect } from 'react';
+import React, { useState } from "react";
+import { useEffect } from "react";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
 
 export default function ContactUs() {
-
   const [contact, setContact] = useState([]);
 
   useEffect(
     () =>
-      onSnapshot(collection(db, "contactUs"), (snapshot) =>
-        {setContact(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      console.log(contact)}
-      ),
+      onSnapshot(collection(db, "contactUs"), (snapshot) => {
+        setContact(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        console.log(contact);
+      }),
     []
   );
 
-    return (
-      <div className="contactus-body">
-        <div className="contactus-container">
+  return (
+    <div className="contactus-body py-5">
+      <div className="contactus-container">
         <div className="contactus-content">
           <div className="contactus-left-side">
             <div className="address details">
@@ -45,24 +44,27 @@ export default function ContactUs() {
           </div>
           <div className="contactus-right-side">
             <div className="topic-text">Send us a message</div>
-            <p>If you have any types of quries related to school, you can send us message from here. It's our pleasure to help you.</p>
-          <form action="#">
-            <div className="input-box">
-              <input type="text" placeholder="Enter your name"/>
-            </div>
-            <div className="input-box">
-              <input type="text" placeholder="Enter your email"/>
-            </div>
-            <div className="input-box message-box">
-              <input type="text" placeholder="Enter your message"/>
-            </div>
-            <div className="button">
-              <input type="button" value="Send Now" />
-            </div>
-          </form>
-        </div>
+            <p>
+              If you have any types of quries related to school, you can send us
+              message from here. It's our pleasure to help you.
+            </p>
+            <form action="#">
+              <div className="input-box">
+                <input type="text" placeholder="Enter your name" />
+              </div>
+              <div className="input-box">
+                <input type="text" placeholder="Enter your email" />
+              </div>
+              <div className="input-box message-box">
+                <input type="text" placeholder="Enter your message" />
+              </div>
+              <div className="button">
+                <input type="button" value="Send Now" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      </div>
-    )
+    </div>
+  );
 }
