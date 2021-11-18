@@ -1,17 +1,17 @@
 import React from "react";
-// import {draw2} from './images/draw2.jpg';
+
 
 export default function Login() {
   return (
-    <section class="vh-100">
-      <div class="container-fluid h-custom mt-5">
-        <div class="row d-flex justify-content-center align-items-center h-100 ">
+    <section class = "mb-5">
+      <div class="container-fluid h-custom mt-5 ">
+        <div class="row d-flex justify-content-center align-items-center ">
           <div class="col-md-9 col-lg-6 col-xl-5 mt-5">
-            {/* <img
-              src={draw2}
+            <img
+              src="images/draw2.png"
               class="img-fluid"
               alt="Sample image"
-            /> */}
+            />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form>
@@ -68,7 +68,7 @@ export default function Login() {
             </form>
           </div>
         </div>
-      </div>
+      </div><br /><br />
     </section>
   );
 }

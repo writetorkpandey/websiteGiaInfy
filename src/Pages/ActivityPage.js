@@ -5,10 +5,13 @@ import Activity from "../Components/Activity";
 
 export default function ActivityPage() {
   return (
-    <>
+    <div>
+  
       <Header />
+      <br /><br />
       <Activity/>
       <Footer />
-    </>
+
+    </div>
   );
 }
