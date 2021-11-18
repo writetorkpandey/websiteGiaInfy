@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-        <div class="container-fluid">
+        <div class="container-fluid ">
           <a class="navbar-brand" href="#">
             Gramarshi Academy International School
           </a>
