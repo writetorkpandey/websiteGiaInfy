@@ -18,13 +18,14 @@ export default function Homepage() {
 
   return (
     <>
-      {/* <div class="container-fluid ">
+      <div class="container-fluid mt-5">
+        <br />
         <img
           src={`https://gramarshiacademyinternational.s3.ap-south-1.amazonaws.com/PIC/${count}.jpeg`}
           className="head-1"
           alt="school"
         />
-      </div> */}
+      </div>
       <Header />
       <Aboutus />
       <Footer />

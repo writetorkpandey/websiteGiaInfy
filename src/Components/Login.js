@@ -1,43 +1,74 @@
 import React from "react";
 
+
 export default function Login() {
   return (
-    <div className=" m-5 d-flex justify-content-center align-items-center">
-      <form class="form-signin">
-        {/* <h3 class="m-5 text-primary">Gramarshi Academy International School </h3> <br /> */}
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">
-          Email address
-        </label>
-        <input
-          type="email"
-          id="inputEmail"
-          class="form-control"
-          placeholder="Email address"
-          required=""
-          autofocus=""
-        />{" "}
-        <br />
-        <label for="inputPassword" class="sr-only">
-          Password
-        </label>
-        <input
-          type="password"
-          id="inputPassword"
-          class="form-control"
-          placeholder="Password"
-          required=""
-        />
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
+    <section class = "mb-5">
+      <div class="container-fluid h-custom mt-5 ">
+        <div class="row d-flex justify-content-center align-items-center ">
+          <div class="col-md-9 col-lg-6 col-xl-5 mt-5">
+            <img
+              src="images/draw2.png"
+              class="img-fluid"
+              alt="Sample image"
+            />
+          </div>
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <form>
+              {/* <!-- Email input --> */}
+              <div class="form-outline mb-4 mt-5">
+                {/* <div class="form-outline mb-4"> */}
+                <input
+                  type="email"
+                  id="form3Example3"
+                  class="form-control form-control-lg"
+                  placeholder="Enter a valid email address"
+                />
+              </div>
+
+              {/* <!-- Password input --> */}
+              <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="form3Example4"
+                  class="form-control form-control-lg"
+                  placeholder="Enter password"
+                />
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                {/* <!-- Checkbox --> */}
+                <div class="form-check mb-0">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3"
+                  />
+                  <label class="form-check-label" for="form2Example3">
+                    Remember me
+                  </label>
+                </div>
+                <a href="#!" class="text-body">
+                  Forgot password?
+                </a>
+              </div>
+
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button type="button" class="btn btn-primary btn-lg">
+                  Login
+                </button>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                  Don't have an account?{" "}
+                  <a href="#!" class="link-danger">
+                    Register
+                  </a>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-          Sign in
-        </button>
-        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
-      </form>
-    </div>
+      </div><br /><br />
+    </section>
   );
 }

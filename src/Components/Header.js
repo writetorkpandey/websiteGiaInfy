@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-        <div class="container-fluid">
+        <div class="container-fluid ">
           <a class="navbar-brand" href="#">
             Gramarshi Academy International School
           </a>
@@ -61,9 +61,9 @@ export default function Header() {
               </li>
             </ul>
 
-            <button class="btn btn-outline-success" type="button">
+            <Link class="btn btn-outline-success" to="/Login" type="button">
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
