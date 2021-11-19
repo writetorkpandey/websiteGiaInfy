@@ -18,13 +18,13 @@ export default function Media() {
 
   useEffect(
     () =>
-      onSnapshot(collection(db, "Mediadata"), (snapshot) =>
-        {setMediadata(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      }
-      ),
+      onSnapshot(collection(db, "Mediadata"), (snapshot) => {
+        setMediadata(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      }),
     []
   );
-
 
   // const Mediadata = [
   //   {
@@ -48,42 +48,35 @@ export default function Media() {
 
   // ]
 
-
   return (
     <div>
       {/* Start of First Card code here */}
       {/* start of Card code here */}
 
-      <div class="container mt-5">
-        
-        <div class="row" >
-          { Mediadata.map (
-            (item) => {
-              return (
-                <div class="col-sm-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{item?.cardHeader}</h5>
-                <img
-                  className="d-block w-100"
-                  src={item?.cardImage}
-                  alt="First slide"
-                />
-                <p class="card-text">
-                  {item.cardDescription?.slice(0,100)}
-                  </p>
-                <a onClick={handleShow} class="btn btn-primary">
-                  {item.cardButton}
-                </a>
+      <div class="container my-5 pt-4">
+        <div class="row">
+          {Mediadata.map((item) => {
+            return (
+              <div class="col-sm-4">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">{item?.cardHeader}</h5>
+                    <img
+                      className="d-block w-100"
+                      src={item?.cardImage}
+                      alt="First slide"
+                    />
+                    <p class="card-text">
+                      {item.cardDescription?.slice(0, 100)}
+                    </p>
+                    <a onClick={handleShow} class="btn btn-primary">
+                      {item.cardButton}
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-              )
-            }
-
-          )
-
-          }
+            );
+          })}
         </div>
 
         {/* End of Card Code here */}

@@ -18,11 +18,11 @@ export default function Homepage() {
 
   return (
     <>
-      <div class="container-fluid mt-5">
+      <div class="container-fluid mt-5" >
         <br />
         <img
           src={`https://gramarshiacademyinternational.s3.ap-south-1.amazonaws.com/PIC/${count}.jpeg`}
-          className="head-1"
+          className="head-1" style ={{width:"100%" , height:"80vh"}}
           alt="school"
         />
       </div>

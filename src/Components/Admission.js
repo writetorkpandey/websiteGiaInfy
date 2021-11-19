@@ -1,6 +1,7 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
+
 
 export default  function Admission() {
 
@@ -17,7 +18,7 @@ export default  function Admission() {
 
 return(
       
-    <div className="container mt-5">
+    <div className="container my-5 py-5">
         <h3 className="text-success display-6">Please read below admission process in detail.</h3>
         <br/>
         {admissionData?admissionData.map((item)=>{
@@ -30,6 +31,7 @@ return(
         )
     }):<div>Loding... pleas wait</div>}
 
+
     </div>
-);
+  );
 }

@@ -63,7 +63,7 @@ export default function Aboutus() {
     <div>
       {/* Start of About Us content */}
 
-      <div class="container py-5 bg-light ">
+      <div class="container py-5 mt-5 bg-light ">
         <div class="card-body abtp">
           {aboutUs.map((item) => {
             return (
@@ -79,7 +79,7 @@ export default function Aboutus() {
 
       {/* Start of team content */}
 
-      <div class="container bg-light">
+      <div class="container bg-light mb-5 pb-5">
         <div class="row">
           <h3 class="h5 text-primary">TEAM GRAMARSHI</h3> <br />
           <br />
