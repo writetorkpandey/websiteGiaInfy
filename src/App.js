@@ -9,6 +9,8 @@ import ActivityPage from "./Pages/ActivityPage";
 import Contactuspage from "./Pages/Contactuspage";
 import Loginpage from "./Pages/LoginPage";
 import AdmissionPage from "./Pages/AdmissionPage";
+import achivementsPage from "./Pages/achivementsPage";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/Contactus" component={Contactuspage} />
           <Route path="/Login" component={Loginpage} />
           <Route path="/Admission" component={AdmissionPage} />
+          <Route path="/Achivements" component={achivementsPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </Router>
     </div>
