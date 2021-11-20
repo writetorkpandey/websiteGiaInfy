@@ -29,7 +29,7 @@ return(
                 <hr/>
             </div>
         )
-    }):<div>Loding... pleas wait</div>}
+    }):<div>Loading... please wait</div>}
 
 
     </div>

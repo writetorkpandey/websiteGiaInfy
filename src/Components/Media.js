@@ -55,7 +55,7 @@ export default function Media() {
 
       <div class="container my-5 pt-4">
         <div class="row">
-          {Mediadata.map((item) => {
+          {Mediadata?Mediadata.map((item) => {
             return (
               <div class="col-sm-4">
                 <div class="card">
@@ -76,7 +76,9 @@ export default function Media() {
                 </div>
               </div>
             );
-          })}
+          }) : <div>Loading... please wait</div>
+                    
+          }
         </div>
 
         {/* End of Card Code here */}
