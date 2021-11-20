@@ -23,7 +23,7 @@ export default function Header() {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class={`collapse navbar-collapse  ${show ? "show" : ""}`}>
-            <ul class="navbar-nav me-auto ">
+            <ul class="navbar-nav ms-auto ">
               <li class="nav-item">
                 <Link to="/" class="nav-link ">
                   HOME
