@@ -1,17 +1,44 @@
-import React from "react";
-
+import React, { useState } from "react";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
 export default function Login() {
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const logout = async () => {
+    await signOut(auth);
+  };
+
   return (
-    <section class = "mb-5">
+    <section class="mb-5">
       <div class="container-fluid h-custom mt-5 ">
         <div class="row d-flex justify-content-center align-items-center ">
           <div class="col-md-9 col-lg-6 col-xl-5 mt-5">
-            <img
-              src="images/draw2.png"
-              class="img-fluid"
-              alt="Sample image"
-            />
+            <img src="images/draw2.png" class="img-fluid" alt="Sample image" />
           </div>
           <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form>
@@ -23,6 +50,9 @@ export default function Login() {
                   id="form3Example3"
                   class="form-control form-control-lg"
                   placeholder="Enter a valid email address"
+                  onChange={(event) => {
+                    setLoginEmail(event.target.value);
+                  }}
                 />
               </div>
 
@@ -33,6 +63,9 @@ export default function Login() {
                   id="form3Example4"
                   class="form-control form-control-lg"
                   placeholder="Enter password"
+                  onChange={(event) => {
+                    setLoginPassword(event.target.value);
+                  }}
                 />
               </div>
 
@@ -55,7 +88,11 @@ export default function Login() {
               </div>
 
               <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="button" class="btn btn-primary btn-lg">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg"
+                  onClick={login}
+                >
                   Login
                 </button>
                 <p class="small fw-bold mt-2 pt-1 mb-0">
@@ -68,7 +105,9 @@ export default function Login() {
             </form>
           </div>
         </div>
-      </div><br /><br />
+      </div>
+      <br />
+      <br />
     </section>
   );
 }
