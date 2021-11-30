@@ -9,28 +9,19 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import Admin from "../Components/Admin";
 
-export default function Loginpage() {
+ export default function Loginpage() {
   const [user, setUser] = useState({});
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
-  const logout = async () => {
-    await signOut(auth);
-  };
+
   return (
     <>
       <Header />
       {/* {console.log(user.email)} */}
-      {user ? (
-        <div>
-          <h1 className="mt-5 p-5 text-center">{user.email} Admin Panel</h1>
-          <button onClick={logout}>Logout</button>
-        </div>
-      ) : (
-        <Login></Login>
-      )}
-
+      {user ? <Admin /> : ( <Login></Login>)}
       <Footer />
     </>
   );
