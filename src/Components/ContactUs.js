@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import db from "../firebaseConfig";
-import { onSnapshot, collection } from "firebase/firestore"; 
-import ReactMapGL,{Marker} from 'react-map-gl';
+import { onSnapshot, collection } from "firebase/firestore";
+import ReactMapGL, { Marker } from "react-map-gl";
 
 export default function ContactUs() {
   const [contact, setContact] = useState([]);
@@ -10,9 +10,9 @@ export default function ContactUs() {
   const [viewport, setViewport] = useState({
     width: 700,
     height: 400,
-    latitude: 26.57061,
-    longitude: 82.40345,
-    zoom: 12
+    latitude: 26.545278738379366,
+    longitude: 82.3931122837089,
+    zoom: 12,
   });
 
   useEffect(
@@ -53,16 +53,27 @@ export default function ContactUs() {
           </div>
           <div className="contactus-right-side">
             {/* <div id="map" className="maps"></div> */}
-            
+
             <ReactMapGL
-            mapboxApiAccessToken ={"pk.eyJ1IjoiYW1pdGJlY3MwOCIsImEiOiJja3drdmhxd2gxd3cyMnBub3hrNTc2a3JkIn0.IecVVTWBO_4o0tX1y-0v-A"}
-            mapStyle={"mapbox://styles/mapbox/dark-v9"}
-            {...viewport}
-             onViewportChange={nextViewport => setViewport(nextViewport)}
-             >
-            <Marker latitude={26.57061} longitude={82.40345} offsetLeft={-20} offsetTop={-(viewport.zoom * 5)/2}>
-            <img src="https://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-HD.png" width ={viewport.zoom * 5} height={viewport.zoom * 5}/>
-            </Marker>
+              mapboxApiAccessToken={
+                "pk.eyJ1IjoiYW1pdGJlY3MwOCIsImEiOiJja3drdmhxd2gxd3cyMnBub3hrNTc2a3JkIn0.IecVVTWBO_4o0tX1y-0v-A"
+              }
+              mapStyle={"mapbox://styles/mapbox/dark-v9"}
+              {...viewport}
+              onViewportChange={(nextViewport) => setViewport(nextViewport)}
+            >
+              <Marker
+                latitude={26.545278738379366}
+                longitude={82.3931122837089}
+                offsetLeft={-20}
+                offsetTop={-(viewport.zoom * 5) / 2}
+              >
+                <img
+                  src="https://www.pngall.com/wp-content/uploads/2017/05/Map-Marker-PNG-HD.png"
+                  width={viewport.zoom * 5}
+                  height={viewport.zoom * 5}
+                />
+              </Marker>
             </ReactMapGL>
           </div>
         </div>
