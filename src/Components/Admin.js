@@ -1,5 +1,5 @@
 import React from "react";
-import Achivements from "./AdminEditPage/Achivements";
+import AchivementsEdit from "./AdminEditPage/AchivementsEdit";
 
 function Admin() {
   return (
@@ -22,7 +22,7 @@ function Admin() {
         </div>
       </form>
 
-      <Achivements />
+      <AchivementsEdit />
     </>
   );
 }
