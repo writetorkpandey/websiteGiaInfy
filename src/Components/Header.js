@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebaseConfig";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 export default function Header() {
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState({});
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+  const logout = async () => {
+    await signOut(auth);
+  };
+
   return (
     <>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
@@ -61,10 +71,23 @@ export default function Header() {
               </li>
             </ul>
 
-            <Link class="btn btn-outline-success" to="/Login" type="button">
-              Login
-            </Link>
-      
+
+            <h4>{user?.email}</h4>
+            {user ? (
+              <Link
+                class="btn btn-outline-success"
+                to="/Login"
+                type="button"
+                onClick={logout}
+              >
+                Logout
+              </Link>
+            ) : (
+              <Link class="btn btn-outline-success" to="/Login" type="button">
+                Login
+              </Link>
+            )}
+
           </div>
         </div>
       </nav>

@@ -20,7 +20,7 @@ import Admin from "../Components/Admin";
   return (
     <>
       <Header />
-      {/* {console.log(user.email)} */}
+ 
       {user ? <Admin /> : ( <Login></Login>)}
       <Footer />
     </>

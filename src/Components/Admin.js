@@ -1,29 +1,31 @@
-import React ,{useState} from "react";
-import { auth } from "../firebaseConfig";
-import {
-    onAuthStateChanged,
-    signOut,
-  } from "firebase/auth";
+import React from "react";
+import Achivements from "./AdminEditPage/Achivements";
 
-export default function Admin() {
-
-    const [user, setUser] = useState({});
-    onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-      });
-      const logout = async () => {
-        await signOut(auth);
-      };
-
-
+function Admin() {
   return (
-    <div>
-      <h1 className ="mt-5"> This is Admin page </h1>
+    <>
+      <form className="mt-5 p-5">
+        <div class="form-group container col-6">
+          <label for="exampleFormControlSelect1">
+            Please select the Page for Modification
+          </label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Select Page</option>
+            <option>Home Page</option>
+            <option>About Us</option>
+            <option>Activity</option>
+            <option>Admission</option>
+            <option>Achievement</option>
+            <option>Media</option>
+            <option>Contact Us</option>
+          </select>
+        </div>
+      </form>
 
-      <div>
-        <h1 className="mt-5 p-5 text-center">{user.email} Admin Panel</h1>
-        <button onClick={logout}>Logout</button>
-      </div>
-    </div>
+      <Achivements />
+    </>
   );
 }
+
+export default Admin;
+
