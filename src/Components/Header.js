@@ -71,6 +71,7 @@ export default function Header() {
               </li>
             </ul>
 
+
             <h4>{user?.email}</h4>
             {user ? (
               <Link
@@ -86,6 +87,7 @@ export default function Header() {
                 Login
               </Link>
             )}
+
           </div>
         </div>
       </nav>
