@@ -10,7 +10,7 @@ import {
 
 export const createRecord = async (tableDetails, idPayload) => {
   await addDoc(collection(db, tableDetails), idPayload);
-  alert("Recod Added successfully !!");
+  alert("Record Added successfully !!");
 };
 
 export const updateRecord = async (tableDetails, id, idPayload) => {
@@ -18,11 +18,11 @@ export const updateRecord = async (tableDetails, id, idPayload) => {
   const userDoc = doc(db, tableDetails, id);
   //   const newFields = { age: age + 1 };
   await updateDoc(userDoc, idPayload);
-  alert("Recod updated successfully !!");
+  alert("Record updated successfully !!");
 };
 
 export const deleteRecord = async (tableDetails, id) => {
   const userDoc = doc(db, tableDetails, id);
   await deleteDoc(userDoc);
-  alert("Recod Deleated successfully !!");
+  alert("Record Deleated successfully !!");
 };
