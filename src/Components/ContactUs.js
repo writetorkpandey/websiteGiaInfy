@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
 import ReactMapGL, { Marker } from "react-map-gl";
+import { Helmet } from "react-helmet";
 
 export default function ContactUs() {
   const [contact, setContact] = useState([]);
@@ -26,6 +27,12 @@ export default function ContactUs() {
 
   return (
     <div className="contactus-body py-5">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Contact US | Home | Gramarshi</title>
+        <link rel="canonical" href="https://gramarshiacademy.in/" />
+      </Helmet>
+
       <div className="contactus-container">
         <div className="contactus-content">
           <div className="contactus-left-side">
