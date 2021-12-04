@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import db from "../../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
-import { updateRecord, deleteRecord } from "../../Helper";
+import { createRecord, updateRecord, deleteRecord } from "../../Helper";
 
 export default function AchivementsEdit() {
   const [achivementsData, setAchivementsData] = useState();
@@ -20,6 +20,7 @@ export default function AchivementsEdit() {
 
   return (
     <div className="activity-div-container py-5">
+      <AchievementUINewRecord />
       {achivementsData ? (
         achivementsData.map((item) => {
           return (
@@ -34,6 +35,47 @@ export default function AchivementsEdit() {
     </div>
   );
 }
+
+const AchievementUINewRecord = () => {
+  const [idPayload, setidPayload] = useState({
+    achivementsName: "",
+    achivementsDescription: "",
+  });
+  console.log(idPayload);
+  return (
+    <>
+      <div className="m-5 ">
+        <input
+          className="form-control"
+          value={idPayload.achivementsName}
+          onChange={(event) => {
+            let tempdata = event.target.value;
+            setidPayload({ ...idPayload, achivementsName: tempdata });
+          }}
+        />
+
+        <textarea
+          className="form-control"
+          value={idPayload.achivementsDescription}
+          onChange={(event) => {
+            let tempdata = event.target.value;
+            setidPayload({ ...idPayload, achivementsDescription: tempdata });
+          }}
+        />
+
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onClick={() => {
+            createRecord("achivements", idPayload);
+          }}
+        >
+          Save new Record
+        </button>
+      </div>
+    </>
+  );
+};
 
 const AchievementUI = (props) => {
   const [idPayload, setidPayload] = useState({

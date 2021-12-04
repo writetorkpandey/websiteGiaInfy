@@ -8,9 +8,10 @@ import {
   doc,
 } from "firebase/firestore";
 
-// export const createRecord = async () => {
-//   await addDoc(usersCollectionRef, { name: newName, age: Number(newAge) });
-// };
+export const createRecord = async (tableDetails, idPayload) => {
+  await addDoc(collection(db, tableDetails), idPayload);
+  alert("Recod Added successfully !!");
+};
 
 export const updateRecord = async (tableDetails, id, idPayload) => {
   console.log(id, tableDetails, idPayload);
