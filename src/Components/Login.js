@@ -6,8 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
-import {signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 export default function Login() {
   const [loginEmail, setLoginEmail] = useState("");
@@ -31,31 +30,28 @@ export default function Login() {
     }
   };
 
-const provider = new GoogleAuthProvider();
-const loginWithGmail = async() => {
-
- signInWithPopup(auth, provider)
-  .then((result) => {
-
-    
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-}
-
+  const provider = new GoogleAuthProvider();
+  const loginWithGmail = async () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  };
 
   const logout = async () => {
     await signOut(auth);
@@ -119,18 +115,65 @@ const loginWithGmail = async() => {
                 <button
                   type="button"
                   class="btn btn-primary btn-lg"
+                  style={{ fontSize: "15px" }}
                   onClick={login}
                 >
                   Login
                 </button>
-                  
-                <button
-                  type="button"
-                  class="btn btn-primary btn-lg mx-4"
-                  onClick={loginWithGmail}
+
+                {/* Login using social media code  */}
+                <div
+                  style={{
+                    width: "100%",
+                    height: "20px",
+                    borderBottom: "1px solid black",
+                    textAlign: "center",
+                  }}
                 >
-                  Login with Gmail
-                </button>
+                  <span
+                    style={{ fontSize: "15px", backgroundColor: "#F3F5F6" }}
+                  >
+                    or Login with
+                  </span>
+                </div>
+
+                <div class="mt-3">
+                  <a
+                    class=" btn"
+                    style={{
+                      backgroundColor: "#3B5998",
+                      color: "white",
+                      fontSize: "12px",
+                    }}
+                  >
+                    <i class="fa fa-facebook "></i> Facebook
+                  </a>
+
+                  <a
+                    class=" btn mx-3"
+                    style={{
+                      backgroundColor: "#dd4b39",
+                      color: "white",
+                      fontSize: "12px",
+                    }}
+                    onClick={loginWithGmail}
+                  >
+                    <i class="fa fa-google"></i> Google
+                  </a>
+
+                  <a
+                    class="twitter btn"
+                    style={{
+                      backgroundColor: "#55ACEE",
+                      color: "white",
+                      fontSize: "12px",
+                    }}
+                  >
+                    <i class="fa fa-mobile"></i> Mobile
+                  </a>
+                </div>
+
+                {/* ========================================== */}
 
                 <p class="small fw-bold mt-2 pt-1 mb-0">
                   Don't have an account?{" "}
