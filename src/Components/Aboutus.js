@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
+import { Helmet } from "react-helmet";
 
 export default function Aboutus() {
   const [aboutUs, setAboutUs] = useState([]);
@@ -19,49 +20,13 @@ export default function Aboutus() {
     });
   }, []);
 
-  // const schoolTeam = [
-  //   {
-  //     imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-4.png",
-  //     name: "Anju Pandey",
-  //     designation: "Manager",
-  //   },
-
-  //   {
-  //     imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-1.png",
-  //     name: "R V Sharma",
-  //     designation: "Principal",
-  //   },
-  //   {
-  //     imgSrc: "https://bootstrapious.com/i/snippets/sn-about/avatar-2.png",
-  //     name: "D N Dubey",
-  //     designation: "Administrator",
-  //   },
-  // ];
-
-  // const aboutUs = [
-  //   {
-  //     heading: "About Gramarshi",
-  //     paragraph:"The school was established in 2008.Gramarshi Academy International is a Co-ed school affiliated to Central Board of Secondary Education (CBSE).It is managed by Gramarshi Academy"
-  //   },
-  //   {
-  //     heading: "Mission",
-  //     paragraph: "To cultivate world-class thinkers.",
-  //   },
-  //   {
-  //     heading: "Vision",
-  //     paragraph:
-  //       "Our students will be the leaders of tomorrow with the skills, knowledge, and confidence to realize their dreams in an ever-changing world.",
-  //   },
-  //   {
-  //     heading: "Our Beliefs",
-  //     paragraph:
-  //       "Every member of our community plays a valuable role in the success of our students by supporting a positive, student-focused learning environment",
-  //   },
-  // ];
-
   return (
     <div>
-      {/* Start of About Us content */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About US | Home | Gramarshi</title>
+        <link rel="canonical" href="https://gramarshiacademy.in/" />
+      </Helmet>
 
       <div class="container py-5 mt-5 bg-light ">
         <div class="card-body abtp">
@@ -79,7 +44,7 @@ export default function Aboutus() {
 
       {/* Start of team content */}
 
-       <div class="container bg-light mb-5 pb-5">
+      <div class="container bg-light mb-5 pb-5">
         <div class="row">
           <h3 class="h5 text-primary">TEAM GRAMARSHI</h3> <br />
           <br />
