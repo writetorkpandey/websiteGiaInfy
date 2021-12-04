@@ -9,8 +9,8 @@ export default function ContactUs() {
   const [contact, setContact] = useState([]);
 
   const [viewport, setViewport] = useState({
-    width: 700,
-    height: 400,
+    width: 350,
+    height: 350,
     latitude: 26.545278738379366,
     longitude: 82.3931122837089,
     zoom: 12,
@@ -33,9 +33,9 @@ export default function ContactUs() {
         <link rel="canonical" href="https://gramarshiacademy.in/" />
       </Helmet>
 
-      <div className="contactus-container">
-        <div className="contactus-content">
-          <div className="contactus-left-side">
+      <div className="contactus-container row">
+        <div className="contactus-content ">
+          <div className="contactus-left-side col">
             <div className="address details">
               <i className="fas fa-map-marker-alt"></i>
               <div className="topic">Address</div>
@@ -58,7 +58,7 @@ export default function ContactUs() {
               <div className="text-two"></div>
             </div>
           </div>
-          <div className="contactus-right-side">
+          <div className="contactus-right-side col">
             {/* <div id="map" className="maps"></div> */}
 
             <ReactMapGL

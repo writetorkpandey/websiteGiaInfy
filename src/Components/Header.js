@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebaseConfig";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function Header() {
   const [show, setShow] = useState(false);
@@ -70,25 +71,23 @@ export default function Header() {
                 </Link>
               </li>
             </ul>
-
-
-            <h4>{user?.email}</h4>
+            {console.log(user)}
             {user ? (
-              <Link
-                class="btn btn-outline-success"
-                to="/Login"
-                type="button"
+              <img
+                src={user?.photoURL}
+                alt=""
+                width="35"
+                class=" m-3 img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 onClick={logout}
-              >
-                Logout
-              </Link>
+              />
             ) : (
               <Link class="btn btn-outline-success" to="/Login" type="button">
                 Login
               </Link>
             )}
-
           </div>
+          {/* <i class="bi bi-person-circle">{user?.email}</i> */}
+          {/* <div className="h4">{user?.email}</div> */}
         </div>
       </nav>
     </>
