@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
+import { Helmet } from "react-helmet";
 
 export default function Achivements() {
   const [achivementsData, setAchivementsData] = useState();
@@ -18,6 +19,12 @@ export default function Achivements() {
 
   return (
     <div className="activity-div-container py-5">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Achivements | Home | Gramarshi</title>
+        <link rel="canonical" href="https://gramarshiacademy.in/" />
+      </Helmet>
+
       {achivementsData ? (
         achivementsData.map((item) => {
           return (

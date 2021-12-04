@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import db from "../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
+import { Helmet } from "react-helmet";
+
 
 export default function Activity() {
-
   const [activityData, setactivityData] = useState();
 
   useEffect(
     () =>
-      onSnapshot(collection(db, "activity"), (snapshot) =>
-        {setactivityData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-      console.log(activityData)}
-      ),
+      onSnapshot(collection(db, "activity"), (snapshot) => {
+        setactivityData(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+        console.log(activityData);
+      }),
     []
   );
-
-
 
   // const activityData = [
   //   {
@@ -45,19 +46,26 @@ export default function Activity() {
   //   },
   // ];
 
-
   return (
     <div className="activity-div-container py-5">
-      {activityData?activityData.map((item) => {
-        return (
-          <>
-            <h1 className="h5 text-primary">{item.activityName}</h1>
-            <p className="text-secondary">{item.activityDescription}</p>
-          </>
-        );
-      }) : <div>Loading... please wait</div>
-    
-    }
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Activities | Home | Gramarshi</title>
+        <link rel="canonical" href="https://gramarshiacademy.in/" />
+      </Helmet>
+
+      {activityData ? (
+        activityData.map((item) => {
+          return (
+            <>
+              <h1 className="h5 text-primary">{item.activityName}</h1>
+              <p className="text-secondary">{item.activityDescription}</p>
+            </>
+          );
+        })
+      ) : (
+        <div>Loading... please wait</div>
+      )}
     </div>
   );
 }

@@ -7,6 +7,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Helmet } from "react-helmet";
+
 
 export default function Login() {
   const [loginEmail, setLoginEmail] = useState("");
@@ -59,6 +61,12 @@ export default function Login() {
 
   return (
     <section class="mb-5">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login | Home | Gramarshi</title>
+        <link rel="canonical" href="https://gramarshiacademy.in/" />
+      </Helmet>
+
       <div class="container-fluid h-custom mt-5 ">
         <div class="row d-flex justify-content-center align-items-center ">
           <div class="col-md-9 col-lg-6 col-xl-5 mt-5">
