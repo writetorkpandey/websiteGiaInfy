@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import AchivementsEdit from "./AdminEditPage/AchivementsEdit";
 import { Helmet } from "react-helmet";
+import AdmissionEdit from "./AdminEditPage/AdmissionEdit";
 
 function Admin() {
+  const [selectedOption, setselectedOption] = useState("0");
+
+  const project = () => {
+    switch (selectedOption) {
+      case "Achievement":
+        return <AchivementsEdit />;
+
+      case "Admission":
+        return <AdmissionEdit />;
+
+      default:
+        return <></>;
+    }
+  };
   return (
     <>
       <Helmet>
@@ -16,20 +31,27 @@ function Admin() {
           <label for="exampleFormControlSelect1">
             Please select the Page for Modification
           </label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Select Page</option>
-            <option>Home Page</option>
-            <option>About Us</option>
-            <option>Activity</option>
-            <option>Admission</option>
-            <option>Achievement</option>
-            <option>Media</option>
-            <option>Contact Us</option>
+          <select
+            class="form-control"
+            id="exampleFormControlSelect1"
+            onChange={(e) => {
+              console.log(e.target.value);
+              setselectedOption(e.target.value);
+            }}
+          >
+            <option value="Select Page">Select Page</option>
+            <option value="Home Page">Home Page</option>
+            <option value="About Us">About Us</option>
+            <option value="Activity">Activity</option>
+            <option value="Admission">Admission</option>
+            <option value="Achievement">Achievement</option>
+            <option value="Media">Media</option>
+            <option value="Contact Us">Contact Us</option>
           </select>
         </div>
       </form>
 
-      <AchivementsEdit />
+      <div>{project()}</div>
     </>
   );
 }
