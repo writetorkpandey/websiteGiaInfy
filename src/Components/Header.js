@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebaseConfig";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function Header() {
   const [show, setShow] = useState(false);
