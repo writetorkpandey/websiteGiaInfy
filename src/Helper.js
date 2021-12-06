@@ -11,6 +11,7 @@ import {
 export const createRecord = async (tableDetails, idPayload) => {
   await addDoc(collection(db, tableDetails), idPayload);
   alert("Record Added successfully !!");
+  
 };
 
 export const updateRecord = async (tableDetails, id, idPayload) => {
