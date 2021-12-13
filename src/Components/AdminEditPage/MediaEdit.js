@@ -5,9 +5,8 @@ import db from "../../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
 
 import {
-  createRecord,
   createRecordWithImageFile,
-  updateRecord,
+  updateRecordWithImageFile,
   deleteRecord,
 } from "../../Helper";
 
@@ -76,7 +75,7 @@ const MediaEditUINewRecord = (props) => {
             className="input"
             onChange={(e) => {
               setnewFile(e.target.files[0]);
-              // console.log(e.target.files[0]);
+              console.log(e.target.files[0]);
             }}
           />
           <textarea
@@ -107,6 +106,7 @@ const MediaEditUINewRecord = (props) => {
 };
 
 const MediaEditUI = (props) => {
+  const [newFile, setnewFile] = useState("");
   const [idPayload, setidPayload] = useState({
     cardHeader: props.item.cardHeader,
     cardDescription: props.item.cardDescription,
@@ -135,6 +135,14 @@ const MediaEditUI = (props) => {
             src={idPayload?.cardImage}
             alt="First slide"
           />
+          <input
+            type="file"
+            className="form-control"
+            onChange={(e) => {
+              setnewFile(e.target.files[0]);
+              // console.log(e.target.files[0]);
+            }}
+          />
           <textarea
             className="form-control"
             value={idPayload.cardDescription}
@@ -150,7 +158,12 @@ const MediaEditUI = (props) => {
             type="button"
             class="btn btn-secondary"
             onClick={() => {
-              updateRecord("Mediadata", props.item.id, idPayload);
+              updateRecordWithImageFile(
+                "Mediadata",
+                props.item.id,
+                idPayload,
+                newFile
+              );
             }}
           >
             Save

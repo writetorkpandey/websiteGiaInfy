@@ -20,6 +20,22 @@ export const createRecordWithImageFile = async (
     alert("Error " + error);
   }
 };
+
+export const updateRecordWithImageFile = async (
+  tableDetails,
+  id,
+  idPayload,
+  newFile
+) => {
+  try {
+    newFile
+      ? uploadFiles(newFile, tableDetails, idPayload, id)
+      : updateRecord(tableDetails, id, idPayload);
+  } catch (error) {
+    alert("Error " + error);
+  }
+};
+
 export const createRecord = async (tableDetails, idPayload) => {
   try {
     await addDoc(collection(db, tableDetails), idPayload);
@@ -43,7 +59,7 @@ export const deleteRecord = async (tableDetails, id) => {
   alert("Record Deleated successfully !!");
 };
 
-const uploadFiles = async (file, tableDetails, idPayload) => {
+const uploadFiles = async (file, tableDetails, idPayload, id) => {
   //
   if (!file) return;
   const sotrageRef = ref(storage, `${idPayload.cardHeader}/${file.name}`);
@@ -60,10 +76,11 @@ const uploadFiles = async (file, tableDetails, idPayload) => {
     (error) => console.log(error),
     () => {
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        console.log("File available at", downloadURL);
         idPayload = { ...idPayload, cardImage: downloadURL };
-        console.log(idPayload);
-        createRecord(tableDetails, idPayload);
+        console.log("rahul", id);
+        id
+          ? updateRecord(tableDetails, id, idPayload)
+          : createRecord(tableDetails, idPayload);
       });
     }
   );
