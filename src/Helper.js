@@ -1,4 +1,4 @@
-import db from "./firebaseConfig";
+import db, { storage } from "./firebaseConfig";
 import {
   collection,
   getDocs,
@@ -7,11 +7,26 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
+export const createRecordWithImageFile = async (
+  tableDetails,
+  idPayload,
+  newFile
+) => {
+  try {
+    uploadFiles(newFile, tableDetails, idPayload);
+  } catch (error) {
+    alert("Error " + error);
+  }
+};
 export const createRecord = async (tableDetails, idPayload) => {
-  await addDoc(collection(db, tableDetails), idPayload);
-  alert("Record Added successfully !!");
-  
+  try {
+    await addDoc(collection(db, tableDetails), idPayload);
+    alert("Record Added successfully !!");
+  } catch (error) {
+    alert("Error " + error);
+  }
 };
 
 export const updateRecord = async (tableDetails, id, idPayload) => {
@@ -26,4 +41,30 @@ export const deleteRecord = async (tableDetails, id) => {
   const userDoc = doc(db, tableDetails, id);
   await deleteDoc(userDoc);
   alert("Record Deleated successfully !!");
+};
+
+const uploadFiles = async (file, tableDetails, idPayload) => {
+  //
+  if (!file) return;
+  const sotrageRef = ref(storage, `${idPayload.cardHeader}/${file.name}`);
+  const uploadTask = uploadBytesResumable(sotrageRef, file);
+
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      const prog = Math.round(
+        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+      );
+      // setProgress(prog);
+    },
+    (error) => console.log(error),
+    () => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        console.log("File available at", downloadURL);
+        idPayload = { ...idPayload, cardImage: downloadURL };
+        console.log(idPayload);
+        createRecord(tableDetails, idPayload);
+      });
+    }
+  );
 };

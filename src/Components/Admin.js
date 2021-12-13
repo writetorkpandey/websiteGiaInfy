@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import AchivementsEdit from "./AdminEditPage/AchivementsEdit";
 import { Helmet } from "react-helmet";
 import AdmissionEdit from "./AdminEditPage/AdmissionEdit";
-import AboutusEdit from "./AdminEditPage/AboutusEdit"
+import AboutusEdit from "./AdminEditPage/AboutusEdit";
+import MediaEdit from "./AdminEditPage/MediaEdit";
 
 function Admin() {
   const [selectedOption, setselectedOption] = useState("0");
@@ -15,8 +16,10 @@ function Admin() {
       case "Admission":
         return <AdmissionEdit />;
 
-        case "AboutUs":
-          return <AboutusEdit />;
+      case "AboutUs":
+        return <AboutusEdit />;
+      case "Media":
+        return <MediaEdit />;
 
       default:
         return <></>;
