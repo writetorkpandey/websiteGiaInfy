@@ -14,11 +14,11 @@ export default function AboutusEdit() {
       setAboutUs(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
 
-    // onSnapshot(collection(db, "schoolTeam"), (snapshot) => {
-    //   setSchoolteam(
-    //     snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-    //   );
-    // });
+    onSnapshot(collection(db, "schoolTeam"), (snapshot) => {
+      setSchoolteam(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
+    });
   }, []);
 
   return (
@@ -60,14 +60,14 @@ export default function AboutusEdit() {
                     width="100"
                     class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                   />
-                  <h5 class="mb-0">{item.name}</h5>
+                   
+                    {/* <input value={item.imgSrc}  />  */}
+
+                  {/* <h5 class="mb-0">{item.name}</h5>
                   <span class="small text-uppercase text-muted  ">
-                    {item.designation}
-                  </span>
+                    {item.designation} */}
 
-                    {/* <AboutusUiStaff /> */}
-
-
+                    <AboutusUiStaff item={item} />
                 </div>
               </div>
             );
@@ -83,8 +83,8 @@ export default function AboutusEdit() {
 
 const AboutusEditNewRecord = () => {
     const [idPayload, setidPayload] = useState({
-        aboutusheading: "",
-        aboutusparagraph: "",
+        heading: "",
+        paragraph: "",
     });
     console.log(idPayload);
     return (
@@ -92,19 +92,19 @@ const AboutusEditNewRecord = () => {
         <div className="m-5 ">
           <input
             className="form-control"
-            value={idPayload.aboutusheading}
+            value={idPayload.heading}
             onChange={(event) => {
               let tempdata = event.target.value;
-              setidPayload({ ...idPayload, aboutusheading: tempdata });
+              setidPayload({ ...idPayload, heading: tempdata });
             }}
           />
   
           <textarea
             className="form-control"
-            value={idPayload.aboutusparagraph}
+            value={idPayload.paragraph}
             onChange={(event) => {
               let tempdata = event.target.value;
-              setidPayload({ ...idPayload, aboutusparagraph: tempdata });
+              setidPayload({ ...idPayload, paragraph: tempdata });
             }}
           />
   
@@ -112,7 +112,7 @@ const AboutusEditNewRecord = () => {
             type="button"
             class="btn btn-secondary"
             onClick={() => {
-              createRecord("achivements", idPayload);
+              createRecord("aboutUs", idPayload);
             }}
           >
             Save new Record
@@ -125,8 +125,8 @@ const AboutusEditNewRecord = () => {
 
   const AboutusUI = (props) => {
     const [idPayload, setidPayload] = useState({
-        aboutusheading: props.item.heading,
-        aboutusparagraph: props.item.paragraph,
+        heading: props.item.heading,
+        paragraph: props.item.paragraph,
     });
     console.log(idPayload);
     console.log(props.item.heading)
@@ -136,19 +136,19 @@ const AboutusEditNewRecord = () => {
         <div className="m-5 ">
           <input
             className="form-control"
-            value={idPayload.aboutusheading}
+            value={idPayload.heading}
             onChange={(event) => {
               let tempdata = event.target.value;
-              setidPayload({ ...idPayload, aboutusheading: tempdata });
+              setidPayload({ ...idPayload, heading: tempdata });
             }}
           />
   
           <textarea
             className="form-control"
-            value={idPayload.aboutusparagraph}
+            value={idPayload.paragraph}
             onChange={(event) => {
               let tempdata = event.target.value;
-              setidPayload({ ...idPayload, aboutusparagraph: tempdata });
+              setidPayload({ ...idPayload, paragraph: tempdata });
             }}
           />
   
@@ -179,8 +179,8 @@ const AboutusEditNewRecord = () => {
 
   const AboutusUiStaff = (props) => {
     const [idPayload, setidPayload] = useState({
-        aboutusname: props.item.name,
-        aboutusdesignation: props.item.designation,
+        name: props.item.name,
+        designation: props.item.designation,
     });
     console.log(idPayload);
     
@@ -190,19 +190,19 @@ const AboutusEditNewRecord = () => {
         <div className="m-5 ">
           <input
             className="form-control"
-            value={idPayload.aboutusname}
+            value={idPayload.name}
             onChange={(event) => {
               let tempdata = event.target.value;
-              setidPayload({ ...idPayload, aboutusname: tempdata });
+              setidPayload({ ...idPayload, name: tempdata });
             }}
           />
   
           <textarea
             className="form-control"
-            value={idPayload.aboutusdesignation}
+            value={idPayload.designation}
             onChange={(event) => {
               let tempdata = event.target.value;
-              setidPayload({ ...idPayload, aboutusdesignation: tempdata });
+              setidPayload({ ...idPayload, designation: tempdata });
             }}
           />
   
