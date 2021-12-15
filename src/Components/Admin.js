@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import AdmissionEdit from "./AdminEditPage/AdmissionEdit";
 import AboutusEdit from "./AdminEditPage/AboutusEdit";
 import MediaEdit from "./AdminEditPage/MediaEdit";
+import ActivityEdit from "./AdminEditPage/ActivityEdit";
 
 function Admin() {
   const [selectedOption, setselectedOption] = useState("0");
@@ -12,15 +13,14 @@ function Admin() {
     switch (selectedOption) {
       case "Achievement":
         return <AchivementsEdit />;
-
       case "Admission":
         return <AdmissionEdit />;
-
       case "AboutUs":
         return <AboutusEdit />;
       case "Media":
         return <MediaEdit />;
-
+      case "Activity":
+        return <ActivityEdit />;
       default:
         return <></>;
     }
