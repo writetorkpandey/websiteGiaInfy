@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect,useRef, useContext } from "react";
 import db from "../../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
 import { Helmet } from "react-helmet";
@@ -25,7 +25,7 @@ export default function ActivityEdit() {
         <title>Activities | Home | Gramarshi</title>
         <link rel="canonical" href="https://gramarshiacademy.in/" />
       </Helmet>
-      <ActivityEditNewRecordUI toggle={toggleDataChanged}/>
+      <ActivityEditNewRecordUI/>
       {activityData ? (
         activityData.map((item) => {
           return (
@@ -67,7 +67,8 @@ const ActivityEditNewRecordUI = () => {
      <button
           type="button"
           class="btn btn-secondary"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             createRecord("activity", idPayload)
             .then(()=>{
               inputActivityName.current.value = "";
@@ -116,8 +117,9 @@ const ActivityEDitUI = (props) => {
         <button
           type="button"
           class="btn btn-danger"
-          onClick={() => {
-            deleteRecord("activity", props.item.id);
+          onClick={(e) => {
+            e.preventDefault();
+            deleteRecord("activity", props.item.id)
           }}
         >
           Delete
