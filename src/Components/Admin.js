@@ -5,6 +5,7 @@ import AdmissionEdit from "./AdminEditPage/AdmissionEdit";
 import AboutusEdit from "./AdminEditPage/AboutusEdit";
 import MediaEdit from "./AdminEditPage/MediaEdit";
 import ActivityEdit from "./AdminEditPage/ActivityEdit";
+import ContactEdit from "./AdminEditPage/ContactEdit";
 
 function Admin() {
   const [selectedOption, setselectedOption] = useState("0");
@@ -21,6 +22,8 @@ function Admin() {
         return <MediaEdit />;
       case "Activity":
         return <ActivityEdit />;
+        case "Contact Us":
+          return <ContactEdit />;
       default:
         return <></>;
     }

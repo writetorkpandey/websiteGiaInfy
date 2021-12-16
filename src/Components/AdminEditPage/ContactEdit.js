@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import db from "../firebaseConfig";
+import db from "../../firebaseConfig";
 import { onSnapshot, collection } from "firebase/firestore";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { Helmet } from "react-helmet";
+import {  updateRecord } from "../../Helper";
 
-export default function ContactUs() {
+export default function ContactEdit() {
   const [contact, setContact] = useState([]);
 
   const [viewport, setViewport] = useState({
@@ -20,10 +21,16 @@ export default function ContactUs() {
     () =>
       onSnapshot(collection(db, "contactUs"), (snapshot) => {
         setContact(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        console.log(contact);
+        console.log(contact[0],"amit");
       }),
     []
   );
+
+  const [idPayload, setidPayload] = useState({
+    // address: contact[0]?.address,
+    // phone: contact[0]?.phone,
+    // email : contact[0]?.email
+  });
 
   return (
     <div className="contactus-body py-5">
@@ -39,18 +46,34 @@ export default function ContactUs() {
             <div className="address details">
               <i className="fas fa-map-marker-alt"></i>
               <div className="topic">Address</div>
-              <div className="text-one">{contact[0]?.address}</div>
+              <div className="text-one"><input className="form-control" value = {contact[0]?.address} 
+               onChange={(event) => {
+                let tempdata = event.target.value;
+                setContact({...contact[0], address: tempdata});
+                {console.log(contact[0])}
+              }}/></div>
+              <div><button
+          type="button"
+          class="btn btn-secondary"
+          onClick={(e) => {
+            // e.preventDefault();
+            console.log(contact[0]);
+            // updateRecord("contactUs", contact[0]?.id, contact[0]);
+          }}
+        >
+          Save
+        </button></div>
             </div>
             <div className="phone details">
               <i className="fas fa-phone-alt"></i>
               <div className="topic">Phone</div>
-              <div className="text-one">{contact[0]?.phone}</div>
+              <div className="text-one"><input className="form-control" value = {contact[0]?.phone}/></div>
               <div className="text-two"></div>
             </div>
             <div className="email details">
               <i className="fas fa-envelope"></i>
               <div className="topic">Email</div>
-              <div className="text-one">{contact[0]?.email}</div>
+              <div className="text-one"><input className="form-control" value ={contact[0]?.email}/></div>
               <div className="text-two"></div>
             </div>
           </div>
